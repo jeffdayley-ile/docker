@@ -1,0 +1,6 @@
+FROM microsoft/nanoserver
+
+COPY jdk1.8.0_121 "C:\java\jdk1.8.0_121"
+RUN set PATH=C:\java\jdk1.8.0_121:%PATH%
+RUN set JAVA_HOME=C:\java\jdk1.8.0_121
+CMD C:\java\jdk1.8.0_121\bin\java.exe -version

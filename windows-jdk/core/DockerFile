@@ -1,0 +1,6 @@
+FROM microsoft/windowsservercore
+
+COPY jdk-8u121-windows-x64.exe C:\jdk-8u121-windows-x64.exe
+RUN powershell start-process -filepath C:\jdk-8u121-windows-x64.exe -passthru -wait -argumentlist "/s,INSTALLDIR=c:\Java\jdk1.8.0_121,/L,install64.log"
+
+CMD java -version

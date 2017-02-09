@@ -1,0 +1,5 @@
+FROM jeffdayley/windows-jdk:nano
+
+EXPOSE 9200
+COPY elasticsearch-5.2.0 C:\elasticsearch
+CMD powershell C:\elasticsearch\bin\elasticsearch.bat
