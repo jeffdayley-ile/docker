@@ -1,4 +1,4 @@
-﻿$es_hostname = "elasticsearch";
+﻿$es_hostname = "es-test-local";
 $es_image = "jeffdayley/windows-elasticsearch:latest"
 $current_ps = docker ps -a --format '{{.Names}}'
 
@@ -58,8 +58,9 @@ do
         }
         else 
         {
-            Write-Host ("Could not connect to $es_hostname container. Waiting 30 seconds before trying again. (Attempt: $retrycount/3)")
-            Start-Sleep -Seconds 30;
+            $sleep = 10
+            Write-Host ("Could not connect to $es_hostname container. Waiting $sleep seconds before trying again. (Attempt: $retrycount/3)")
+            Start-Sleep -Seconds $sleep;
             $retrycount = $retrycount + 1;
         }
     }
